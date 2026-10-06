@@ -1,53 +1,10 @@
 import React from 'react'
 import { interpolate, useCurrentFrame } from 'remotion'
-import { brandFingerprintPaths } from './brandFingerprintPaths'
-
-// Measure the quadratic curves once so each SVG stroke reveals at its actual length.
-const measureRidge = (path: string) => {
-  const tokens = path.match(/[MQ]|-?\d+(?:\.\d+)?/g) ?? []
-  let cursor = 0
-  let x = 0
-  let y = 0
-  let length = 0
-
-  while (cursor < tokens.length) {
-    const command = tokens[cursor++]
-    if (command === 'M') {
-      x = Number(tokens[cursor++])
-      y = Number(tokens[cursor++])
-      continue
-    }
-    if (command !== 'Q') continue
-
-    const controlX = Number(tokens[cursor++])
-    const controlY = Number(tokens[cursor++])
-    const endX = Number(tokens[cursor++])
-    const endY = Number(tokens[cursor++])
-    let previousX = x
-    let previousY = y
-
-    for (let sample = 1; sample <= 16; sample++) {
-      const t = sample / 16
-      const inverse = 1 - t
-      const sampleX = inverse * inverse * x + 2 * inverse * t * controlX + t * t * endX
-      const sampleY = inverse * inverse * y + 2 * inverse * t * controlY + t * t * endY
-      length += Math.hypot(sampleX - previousX, sampleY - previousY)
-      previousX = sampleX
-      previousY = sampleY
-    }
-
-    x = endX
-    y = endY
-  }
-
-  return length
-}
-
-const ridges = brandFingerprintPaths.map((path) => ({ path, length: measureRidge(path) }))
+import { fingerprintRidges } from './fingerprintRidges'
 
 const ridgeProgress = (frame: number, index: number) => {
   const drawDelay = index * 0.4
-  const eraseDelay = (ridges.length - index - 1) * 0.35
+  const eraseDelay = (fingerprintRidges.length - index - 1) * 0.35
 
   return interpolate(
     frame,
@@ -103,11 +60,11 @@ export const HeroFingerprint: React.FC = () => {
       <path d="M0 0H375V355H0z" fill="url(#qadroFingerprintGlow)" />
 
       <g stroke="url(#qadroFingerprintStroke)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="8.2" opacity="0.23">
-        {ridges.map(({ path }) => <path key={path} d={path} />)}
+        {fingerprintRidges.map(({ path }) => <path key={path} d={path} />)}
       </g>
 
       <g stroke="url(#qadroFingerprintStroke)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="8.2" opacity="0.93">
-        {ridges.map(({ path, length }, index) => (
+        {fingerprintRidges.map(({ path, length }, index) => (
           <path
             key={path}
             d={path}
@@ -125,7 +82,7 @@ export const HeroFingerprint: React.FC = () => {
         opacity={scannerOpacity}
         aria-hidden="true"
       >
-        {ridges.map(({ path, length }, index) => (
+        {fingerprintRidges.map(({ path, length }, index) => (
           <path
             key={path}
             d={path}

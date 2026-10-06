@@ -147,31 +147,6 @@
   place-items: center;
 }
 
-.replayButton {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  margin: 2px auto 0;
-  padding: 7px 9px;
-  border: 0;
-  background: transparent;
-  color: #59626b;
-  cursor: pointer;
-  font: inherit;
-  font-size: 12px;
-  font-weight: 600;
-  transition: color 180ms ease;
-}
-
-.replayButton:hover {
-  color: #c92e3a;
-}
-
-.replayButton:focus-visible {
-  outline: 3px solid rgba(230, 57, 70, 0.35);
-  outline-offset: 3px;
-}
-
 @media (max-width: 960px) {
   .hero {
     min-height: 0;
@@ -254,8 +229,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .ctaPrimary,
-  .ctaSecondary,
-  .replayButton {
+  .ctaSecondary {
     transition: none;
   }
 }

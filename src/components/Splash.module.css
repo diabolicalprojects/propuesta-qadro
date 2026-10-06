@@ -1,0 +1,27 @@
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  opacity: 1;
+  transition: opacity 380ms ease, visibility 380ms ease;
+}
+
+.leaving {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.playerFrame {
+  width: min(95vw, 630px);
+  aspect-ratio: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash {
+    transition: none;
+  }
+}

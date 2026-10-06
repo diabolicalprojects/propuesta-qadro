@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import Splash from './components/Splash'
 import Hero from './components/Hero'
 import Clients from './components/Clients'
 import Services from './components/Services'
@@ -11,6 +12,7 @@ import WhatsAppButton from './components/WhatsAppButton'
 function App() {
   return (
     <>
+      <Splash />
       <Navbar />
       <main>
         <Hero />

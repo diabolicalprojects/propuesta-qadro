@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { Player } from '@remotion/player'
 import type { PlayerRef } from '@remotion/player'
-import { ArrowRight, ArrowUpRight, RotateCcw } from 'lucide-react'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { HeroFingerprint } from '../remotion/HeroFingerprint'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import styles from './Hero.module.css'
@@ -30,13 +30,6 @@ export const Hero: React.FC = () => {
       player.play()
     }
   }, [reducedMotion])
-
-  const replayFingerprint = () => {
-    const player = playerRef.current
-    if (!player) return
-    player.seekTo(0)
-    player.play()
-  }
 
   return (
     <section id="inicio" className={styles.hero}>
@@ -87,9 +80,6 @@ export const Hero: React.FC = () => {
                 style={{ width: '100%', height: '100%' }}
               />
             </div>
-            <button type="button" className={styles.replayButton} onClick={replayFingerprint}>
-              <RotateCcw size={14} aria-hidden="true" /> Repetir animación
-            </button>
           </div>
         </div>
       </div>
