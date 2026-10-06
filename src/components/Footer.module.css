@@ -2,7 +2,7 @@
   position: relative;
   background-color: #0D141A;
   color: #9CA3AF;
-  font-family: var(--font-body, 'Inter', sans-serif);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
   padding-top: clamp(64px, 8vw, 96px);
   overflow: hidden;
 }

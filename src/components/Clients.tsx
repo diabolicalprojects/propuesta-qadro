@@ -58,25 +58,30 @@ export const Clients: React.FC = () => (
         </p>
       </motion.div>
 
-      {/* Logos strip — NO containers, plain img tags */}
-      <motion.div
-        className={styles.logoStrip}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.1 }}
-      >
-        {clients.map((c) => (
-          <img
-            key={c.name}
-            src={`${CDN}${c.file}`}
-            alt={c.name}
-            className={styles.logo}
-            loading="lazy"
-            title={c.name}
-          />
-        ))}
-      </motion.div>
+      <div className={styles.logoViewport} role="region" aria-label="Carrusel de marcas clientes" tabIndex={0}>
+        <motion.div
+          className={styles.logoTrack}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          {[0, 1].map((copy) => (
+            <div className={styles.logoGroup} key={copy} aria-hidden={copy === 1}>
+              {clients.map((c) => (
+                <img
+                  key={c.name}
+                  src={`${CDN}${c.file}`}
+                  alt={copy === 0 ? c.name : ''}
+                  className={styles.logo}
+                  loading="lazy"
+                  title={c.name}
+                />
+              ))}
+            </div>
+          ))}
+        </motion.div>
+      </div>
 
       {/* Results cards */}
       <div className={styles.resultsGrid}>

@@ -2,31 +2,11 @@
  * AnimatedServiceCard — wraps a Remotion composition inside a <Player>
  * for inline playback in the Services section.
  */
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Player } from '@remotion/player'
-import {
-  MarketingIcon,
-  EcommerceIcon,
-  WebIcon,
-  BrandingIcon,
-  SocialIcon,
-  VideoIcon,
-} from './ServiceIcons'
-
-export interface ServiceCardDef {
-  id: string
-  label: string
-  composition: React.FC<{ isDark?: boolean }>
-}
-
-export const SERVICE_CARDS: ServiceCardDef[] = [
-  { id: 'marketing', label: 'Marketing',      composition: MarketingIcon },
-  { id: 'ecommerce', label: 'E-commerce',     composition: EcommerceIcon },
-  { id: 'web',       label: 'Páginas Web',    composition: WebIcon },
-  { id: 'branding',  label: 'Branding',       composition: BrandingIcon },
-  { id: 'social',    label: 'Redes Sociales', composition: SocialIcon },
-  { id: 'video',     label: 'Foto & Video',   composition: VideoIcon },
-]
+import type { PlayerRef } from '@remotion/player'
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
+import type { ServiceCardDef } from './serviceCardDefinitions'
 
 interface Props {
   card: ServiceCardDef
@@ -35,15 +15,32 @@ interface Props {
 }
 
 const AnimatedServiceCard: React.FC<Props> = ({ card, size = 64, isDark = false }) => {
+  const playerRef = useRef<PlayerRef>(null)
+  const reducedMotion = usePrefersReducedMotion()
+
+  useEffect(() => {
+    const player = playerRef.current
+    if (!player) return
+    if (reducedMotion) {
+      player.pause()
+      player.seekTo(60)
+    } else {
+      player.play()
+    }
+  }, [reducedMotion])
+
   return (
     <Player
+      ref={playerRef}
       component={card.composition}
       compositionWidth={120}
       compositionHeight={120}
       durationInFrames={90}
       fps={30}
       loop
-      autoPlay
+      autoPlay={!reducedMotion}
+      initiallyMuted
+      initialFrame={60}
       acknowledgeRemotionLicense
       style={{
         width: size,

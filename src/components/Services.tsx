@@ -1,21 +1,15 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import {
-  Share2,
-  Megaphone,
-  Monitor,
-  Palette,
-  Video,
-  ShoppingCart,
-  ArrowUpRight,
-} from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
+import AnimatedServiceCard from '../remotion/AnimatedServiceCard'
+import { SERVICE_CARDS } from '../remotion/serviceCardDefinitions'
 import styles from './Services.module.css'
 
 interface ServiceItem {
   num: string
   title: string
   desc: string
-  icon: React.ReactNode
+  icon: string
   tag: string
   dark?: boolean
 }
@@ -25,7 +19,7 @@ const servicesList: ServiceItem[] = [
     num: '01',
     title: 'Manejo de Redes Sociales',
     desc: 'Contenido estratégico que conecta y atrae clientes reales. Crecimiento orgánico y contenido visual cautivador.',
-    icon: <Share2 size={24} strokeWidth={2} />,
+    icon: 'social',
     tag: 'CONTENIDO & COMMUNITY',
     dark: false,
   },
@@ -33,7 +27,7 @@ const servicesList: ServiceItem[] = [
     num: '02',
     title: 'Publicidad Digital (Ads)',
     desc: 'Campañas de alto rendimiento en Meta Ads y Google Ads enfocadas exclusivamente en conversión y ROI.',
-    icon: <Megaphone size={24} strokeWidth={2} />,
+    icon: 'marketing',
     tag: 'TRÁFICO & VENTAS',
     dark: true,
   },
@@ -41,7 +35,7 @@ const servicesList: ServiceItem[] = [
     num: '03',
     title: 'Diseño & Desarrollo Web',
     desc: 'Sitios web modernos, ultrarrápidos y optimizados para convertir visitantes en prospectos calificados.',
-    icon: <Monitor size={24} strokeWidth={2} />,
+    icon: 'web',
     tag: 'WEB & E-COMMERCE',
     dark: false,
   },
@@ -49,7 +43,7 @@ const servicesList: ServiceItem[] = [
     num: '04',
     title: 'Diseño & Branding',
     desc: 'Identidad visual memorable. La gente es muy visual, creamos marcas que destacan de la competencia.',
-    icon: <Palette size={24} strokeWidth={2} />,
+    icon: 'branding',
     tag: 'IDENTIDAD DE MARCA',
     dark: true,
   },
@@ -57,7 +51,7 @@ const servicesList: ServiceItem[] = [
     num: '05',
     title: 'Producción Audiovisual',
     desc: 'Fotografía comercial y producción de video profesional para redes sociales y campañas publicitarias.',
-    icon: <Video size={24} strokeWidth={2} />,
+    icon: 'video',
     tag: 'FOTO & VIDEO REELS',
     dark: false,
   },
@@ -65,7 +59,7 @@ const servicesList: ServiceItem[] = [
     num: '06',
     title: 'Ventas en Línea & E-Commerce',
     desc: 'Tiendas online diseñadas para que la gente encuentre rápido lo que busca y pague sin complicaciones.',
-    icon: <ShoppingCart size={24} strokeWidth={2} />,
+    icon: 'ecommerce',
     tag: 'E-COMMERCE 360°',
     dark: true,
   },
@@ -101,7 +95,13 @@ export const Services: React.FC = () => {
               </div>
 
               <div className={styles.cardBody}>
-                <div className={styles.iconBox}>{service.icon}</div>
+                <div className={styles.iconBox} aria-hidden="true">
+                  <AnimatedServiceCard
+                    card={SERVICE_CARDS.find(({ id }) => id === service.icon)!}
+                    size={64}
+                    isDark={service.dark}
+                  />
+                </div>
                 <h3 className={styles.cardTitle}>{service.title}</h3>
                 <p className={styles.cardDesc}>{service.desc}</p>
               </div>

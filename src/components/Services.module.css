@@ -106,8 +106,9 @@
 }
 
 .iconBox {
-  width: 52px;
-  height: 52px;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 auto;
   border-radius: 14px;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.06);
@@ -116,6 +117,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
 }
 
 .darkCard .iconBox {
@@ -137,7 +139,7 @@
 }
 
 .cardDesc {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body, sans-serif);
   font-size: 14px;
   color: #4B5563;
   line-height: 1.6;

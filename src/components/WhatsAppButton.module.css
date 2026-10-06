@@ -97,7 +97,7 @@
   color: #FFFFFF;
   padding: 8px 14px;
   border-radius: var(--radius-sm, 8px);
-  font-family: var(--font-body, 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-family: var(--font-body, 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif);
   font-size: 13px;
   font-weight: 500;
   letter-spacing: -0.01em;

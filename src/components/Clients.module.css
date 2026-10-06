@@ -46,33 +46,84 @@
   line-height: 1.6;
 }
 
-/* ── Logo strip — NO card containers ── */
-.logoStrip {
+/* One continuous line, duplicated for a seamless client-logo carousel. */
+.logoViewport {
+  position: relative;
+  width: 100vw;
+  margin: 0 calc(50% - 50vw) 64px;
+  overflow: hidden;
+  border-top: 1px solid rgba(13,20,26,0.1);
+  border-bottom: 1px solid rgba(13,20,26,0.1);
+  background: #fff;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+}
+
+.logoViewport:focus-visible {
+  outline: 2px solid var(--color-primary, #E63946);
+  outline-offset: -3px;
+}
+
+.logoTrack {
   display: flex;
-  flex-wrap: wrap;
+  width: max-content;
+  min-height: 112px;
+  animation: logoScroll 46s linear infinite;
+}
+
+.logoGroup {
+  display: flex;
+  flex: 0 0 auto;
   align-items: center;
-  justify-content: center;
-  gap: 48px 64px;
-  padding: 56px 0 72px;
-  border-top: 1px solid rgba(13,20,26,0.08);
-  border-bottom: 1px solid rgba(13,20,26,0.08);
-  margin-bottom: 64px;
+  justify-content: space-around;
+  gap: clamp(42px, 6vw, 84px);
+  padding: 18px clamp(34px, 5vw, 70px);
+}
+
+.logoViewport:hover .logoTrack,
+.logoViewport:focus-within .logoTrack {
+  animation-play-state: paused;
+}
+
+@keyframes logoScroll {
+  to { transform: translateX(-50%); }
+}
+
+.logoViewport::before,
+.logoViewport::after {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  width: 4vw;
+  content: '';
+  pointer-events: none;
+}
+
+.logoViewport::before {
+  left: 0;
+  background: linear-gradient(90deg, #fff, transparent);
+}
+
+.logoViewport::after {
+  right: 0;
+  background: linear-gradient(270deg, #fff, transparent);
 }
 
 .logo {
-  height: 60px;
   width: auto;
-  max-width: 190px;
+  height: 48px;
+  max-width: 150px;
+  flex: 0 0 auto;
   object-fit: contain;
   filter: grayscale(100%);
-  opacity: 0.65;
-  transition: filter 0.25s, opacity 0.25s, transform 0.25s;
+  opacity: 0.76;
+  transition: filter 250ms ease, opacity 250ms ease;
 }
 
 .logo:hover {
   filter: grayscale(0%);
   opacity: 1;
-  transform: translateY(-4px) scale(1.08);
 }
 
 /* ── Results grid ── */
@@ -153,11 +204,37 @@
     grid-template-columns: 1fr;
   }
 
-  .logoStrip {
-    gap: 24px 32px;
+  .logoViewport {
+    margin-bottom: 46px;
+  }
+
+  .logoTrack {
+    min-height: 90px;
+    animation-duration: 38s;
+  }
+
+  .logoGroup {
+    gap: 34px;
+    padding: 16px 28px;
   }
 
   .logo {
-    height: 26px;
+    height: 36px;
+    max-width: 116px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logoViewport {
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+
+  .logoTrack {
+    animation: none;
+  }
+
+  .logoGroup[aria-hidden="true"] {
+    display: none;
   }
 }

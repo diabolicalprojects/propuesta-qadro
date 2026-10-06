@@ -69,7 +69,7 @@
 }
 
 .description {
-  font-family: var(--font-body, 'Inter', sans-serif);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
   font-size: clamp(1rem, 1.25vw, 1.125rem);
   line-height: 1.75;
   color: #4B5563;
@@ -106,7 +106,7 @@
 }
 
 .progressValue {
-  font-family: var(--font-body, 'Inter', sans-serif);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
   font-weight: 700;
   color: #E63946;
   font-variant-numeric: tabular-nums;
@@ -481,7 +481,7 @@
 }
 
 .statLabel {
-  font-family: var(--font-body, 'Inter', sans-serif);
+  font-family: var(--font-body, 'DM Sans', sans-serif);
   font-size: 0.875rem;
   font-weight: 500;
   color: #6B7280;

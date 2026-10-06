@@ -70,7 +70,7 @@
 }
 
 .cardText {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body, sans-serif);
   font-size: 14px;
   color: #374151;
   line-height: 1.65;
@@ -108,7 +108,7 @@
 }
 
 .clientSubtitle {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body, sans-serif);
   font-size: 12px;
   color: #6B7280;
 }
