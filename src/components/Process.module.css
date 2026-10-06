@@ -1,0 +1,205 @@
+.section {
+  padding: 100px 0;
+  background-color: #F8F9FA;
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  margin-bottom: 52px;
+}
+
+.eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #E63946;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(32px, 3.8vw, 44px);
+  font-weight: 900;
+  color: #0D141A;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 90px;
+}
+
+.stepCard {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.stepBadge {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: #E63946;
+  background: rgba(230, 57, 70, 0.08);
+  padding: 4px 10px;
+  border-radius: 99px;
+  width: fit-content;
+  margin-bottom: 16px;
+}
+
+.stepIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #0D141A;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.stepTitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0D141A;
+  margin-bottom: 8px;
+}
+
+.stepDesc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #6B7280;
+  line-height: 1.55;
+}
+
+/* How Section */
+.howWrapper {
+  padding-top: 40px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.headerCenter {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.eyebrowBlue {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #0037FF;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.titleHow {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 900;
+  color: #0D141A;
+  letter-spacing: -0.03em;
+}
+
+.howGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.howCard {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-top-width: 4px;
+  border-radius: 20px;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.howNum {
+  font-family: 'Outfit', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.howCardTitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0D141A;
+  margin-bottom: 8px;
+}
+
+.howCardDesc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #4B5563;
+  line-height: 1.6;
+}
+
+.ctaWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.agendaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #0D141A;
+  color: #FFFFFF;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 99px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(13, 20, 26, 0.2);
+  transition: all 0.2s ease;
+}
+
+.agendaBtn:hover {
+  background-color: #E63946;
+  box-shadow: 0 12px 32px rgba(230, 57, 70, 0.35);
+}
+
+@media (max-width: 1024px) {
+  .stepsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .howGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+}

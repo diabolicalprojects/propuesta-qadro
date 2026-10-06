@@ -1,0 +1,155 @@
+.marqueeWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-dark, #0D141A);
+  padding: 22px 0;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  /* Edge fade effect for sleek agency look */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 48px,
+    black calc(100% - 48px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 48px,
+    black calc(100% - 48px),
+    transparent 100%
+  );
+}
+
+.variantOutline {
+  background-color: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.variantOutline .itemText {
+  color: transparent;
+  -webkit-text-stroke: 1.2px rgba(255, 255, 255, 0.85);
+}
+
+.variantOutline .itemText:hover {
+  color: var(--color-white, #FFFFFF);
+  -webkit-text-stroke: 0px;
+}
+
+.inner {
+  display: flex;
+  width: max-content;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+  animation: marqueeScroll var(--speed, 32s) linear infinite;
+  will-change: transform;
+}
+
+.reverse .track {
+  animation-direction: reverse;
+}
+
+.pauseOnHover:hover .track {
+  animation-play-state: paused;
+}
+
+.itemGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding: 0 14px;
+}
+
+.itemText {
+  font-family: var(--font-heading, 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif);
+  font-size: clamp(1.25rem, 2.2vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-white, #FFFFFF);
+  line-height: 1;
+  transition: color var(--transition-fast, 150ms cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.itemText:hover {
+  color: var(--color-primary, #E63946);
+}
+
+.decorator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: var(--color-primary, #E63946);
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(230, 57, 70, 0.5));
+  transition: transform var(--transition-fast, 150ms cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.itemGroup:hover .decorator {
+  transform: rotate(45deg) scale(1.15);
+}
+
+/* Keyframe animation for infinite seamless loop */
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .marqueeWrapper {
+    padding: 18px 0;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 24px,
+      black calc(100% - 24px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 24px,
+      black calc(100% - 24px),
+      transparent 100%
+    );
+  }
+
+  .itemGroup {
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .itemText {
+    font-size: 1.15rem;
+  }
+
+  .decorator {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation-play-state: paused;
+  }
+}

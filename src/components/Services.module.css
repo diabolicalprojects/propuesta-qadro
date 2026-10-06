@@ -1,0 +1,176 @@
+.section {
+  padding: 100px 0;
+  background-color: #FFFFFF;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header {
+  margin-bottom: 60px;
+}
+
+.eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #E63946;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(32px, 3.8vw, 48px);
+  font-weight: 900;
+  color: #0D141A;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.bentoCard {
+  background: #F8F9FA;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 320px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bentoCard:hover {
+  border-color: rgba(230, 57, 70, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.darkCard {
+  background: #0D141A;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.darkCard:hover {
+  border-color: rgba(230, 57, 70, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.cardTag {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #E63946;
+  background: rgba(230, 57, 70, 0.08);
+  padding: 4px 10px;
+  border-radius: 99px;
+}
+
+.darkCard .cardTag {
+  background: rgba(230, 57, 70, 0.18);
+}
+
+.cardNum {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: #9CA3AF;
+}
+
+.darkCard .cardNum {
+  color: #4B5563;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.iconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: #E63946;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.darkCard .iconBox {
+  background: #141C24;
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #E63946;
+}
+
+.cardTitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0D141A;
+  line-height: 1.25;
+}
+
+.darkCard .cardTitle {
+  color: #FFFFFF;
+}
+
+.cardDesc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #4B5563;
+  line-height: 1.6;
+}
+
+.darkCard .cardDesc {
+  color: #9CA3AF;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #E63946;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.cardLink:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+  .bentoGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .bentoGrid {
+    grid-template-columns: 1fr;
+  }
+}

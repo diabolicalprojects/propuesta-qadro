@@ -1,0 +1,132 @@
+{
+  "brand": {
+    "name": "Grupo Qadro",
+    "tagline": "Diseño, contenido y ventas.",
+    "description": "La gente es muy visual, usa eso a tu favor. Hacemos marketing digital, diseño web y producción de video para que tu marca atraiga a los clientes ideales y aumentes tus ventas.",
+    "phone": "449 755 15 85",
+    "whatsapp": "524497551585",
+    "whatsappMessage": "Hola! Quiero información sobre los servicios de Qadro.",
+    "email": "contacto@grupoquadro.com.mx",
+    "address": "Del Arcoiris 211, Villas de la Cantera, 20200 Aguascalientes, Ags.",
+    "social": {
+      "instagram": "https://www.instagram.com/grupoqadro",
+      "facebook": "https://www.facebook.com/grupoqadro",
+      "tiktok": "https://www.tiktok.com/@grupoqadro"
+    }
+  },
+  "hero": {
+    "headline": "Invierte en buen diseño. Invierte en buen contenido.",
+    "subheadline": "Atraemos tráfico digital y a los clientes ideales para tu negocio. Diseño, marketing y tecnología aplicados directo a tus ventas.",
+    "cta": "Hablemos por WhatsApp",
+    "ctaSecondary": "Ver lo que hacemos",
+    "stats": {
+      "clients": "250+",
+      "clientsLabel": "Clientes reales",
+      "brands": "8",
+      "brandsLabel": "Marcas destacadas",
+      "rating": "4.7",
+      "ratingLabel": "Calificación",
+      "years": "16+",
+      "yearsLabel": "Años trabajando"
+    }
+  },
+  "services": [
+    {
+      "id": "marketing",
+      "number": "01",
+      "title": "Marketing y Tráfico Digital",
+      "description": "¿Cómo atraer a los clientes ideales? Creamos campañas directas para generar prospectos y ventas, sin métricas de vanidad.",
+      "icon": "megaphone"
+    },
+    {
+      "id": "ecommerce",
+      "number": "02",
+      "title": "Ventas en Línea",
+      "description": "Tiendas online diseñadas para que la gente encuentre rápido lo que busca y pague sin complicaciones.",
+      "icon": "shoppingCart"
+    },
+    {
+      "id": "web",
+      "number": "03",
+      "title": "Páginas Web",
+      "description": "Tu sitio web debe vender, no solo verse bonito. Armamos páginas rápidas, claras y directo al grano.",
+      "icon": "monitor"
+    },
+    {
+      "id": "branding",
+      "number": "04",
+      "title": "Identidad Visual",
+      "description": "La gente es muy visual, úsalo a tu favor. Diseñamos logotipos y marcas que las personas recuerdan.",
+      "icon": "palette"
+    },
+    {
+      "id": "social",
+      "number": "05",
+      "title": "Redes Sociales",
+      "description": "Contenido que la gente realmente quiere ver y compartir. Crecimiento de comunidad orgánico y de paga.",
+      "icon": "share2"
+    },
+    {
+      "id": "video",
+      "number": "06",
+      "title": "Foto y Video",
+      "description": "Producción comercial, fotografía de producto y videos cortos para captar la atención rápido.",
+      "icon": "video"
+    }
+  ],
+  "process": [
+    {
+      "step": "01",
+      "title": "Nos cuentas qué necesitas",
+      "description": "Nos sentamos a hablar de tu negocio, qué vendes y a quién le quieres vender."
+    },
+    {
+      "step": "02",
+      "title": "Armamos el plan",
+      "description": "Definimos qué vamos a hacer, cuánto va a costar y en cuánto tiempo estará."
+    },
+    {
+      "step": "03",
+      "title": "Manos a la obra",
+      "description": "Diseñamos, programamos o grabamos. Te mostramos avances reales y tangibles."
+    },
+    {
+      "step": "04",
+      "title": "Publicamos y medimos",
+      "description": "Lanzamos la campaña o el sitio web y revisamos los números para ver qué vende."
+    }
+  ],
+  "clients": [
+    "Calzado Acuaman",
+    "Grupo Nafe",
+    "Del Arcoiris",
+    "Taller Mecánico",
+    "Restaurante El Sabor",
+    "Inmobiliaria Centro"
+  ],
+  "testimonials": [
+    {
+      "name": "Carlos Mendoza",
+      "role": "Grupo Nafe",
+      "text": "Con Qadro las cosas son claras. Nos ayudaron a armar la tienda online y las ventas empezaron a moverse desde el primer mes.",
+      "rating": 5
+    },
+    {
+      "name": "María González",
+      "role": "Calzado Acuaman",
+      "text": "Entendieron súper rápido lo que queríamos. El diseño quedó muy bien y el trato siempre fue directo y sin rodeos.",
+      "rating": 5
+    },
+    {
+      "name": "Roberto Silva",
+      "role": "Del Arcoiris",
+      "text": "Teníamos dudas sobre invertir en internet, pero ellos nos explicaron todo con peras y manzanas.",
+      "rating": 5
+    }
+  ],
+  "cta": {
+    "headline": "¡No dejes pasar esta oportunidad!",
+    "description": "Aumenta tus ventas con buen diseño y buen contenido. Escríbenos para platicar de tu negocio.",
+    "buttonText": "Contáctanos por WhatsApp"
+  }
+}
