@@ -10,10 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@remotion/media-utils": "^4.0.533",
+    "@remotion/player": "^4.0.533",
     "framer-motion": "^14.0.0",
     "lucide-react": "^1.52.0",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "remotion": "^4.0.533"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",

@@ -1,13 +1,13 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { 
-  MessageSquare, 
-  Megaphone, 
-  Monitor, 
-  Palette, 
-  Video, 
-  Target,
-  ArrowUpRight 
+import {
+  Share2,
+  Megaphone,
+  Monitor,
+  Palette,
+  Video,
+  ShoppingCart,
+  ArrowUpRight,
 } from 'lucide-react'
 import styles from './Services.module.css'
 
@@ -25,7 +25,7 @@ const servicesList: ServiceItem[] = [
     num: '01',
     title: 'Manejo de Redes Sociales',
     desc: 'Contenido estratégico que conecta y atrae clientes reales. Crecimiento orgánico y contenido visual cautivador.',
-    icon: <MessageSquare size={26} />,
+    icon: <Share2 size={24} strokeWidth={2} />,
     tag: 'CONTENIDO & COMMUNITY',
     dark: false,
   },
@@ -33,7 +33,7 @@ const servicesList: ServiceItem[] = [
     num: '02',
     title: 'Publicidad Digital (Ads)',
     desc: 'Campañas de alto rendimiento en Meta Ads y Google Ads enfocadas exclusivamente en conversión y ROI.',
-    icon: <Megaphone size={26} />,
+    icon: <Megaphone size={24} strokeWidth={2} />,
     tag: 'TRÁFICO & VENTAS',
     dark: true,
   },
@@ -41,7 +41,7 @@ const servicesList: ServiceItem[] = [
     num: '03',
     title: 'Diseño & Desarrollo Web',
     desc: 'Sitios web modernos, ultrarrápidos y optimizados para convertir visitantes en prospectos calificados.',
-    icon: <Monitor size={26} />,
+    icon: <Monitor size={24} strokeWidth={2} />,
     tag: 'WEB & E-COMMERCE',
     dark: false,
   },
@@ -49,7 +49,7 @@ const servicesList: ServiceItem[] = [
     num: '04',
     title: 'Diseño & Branding',
     desc: 'Identidad visual memorable. La gente es muy visual, creamos marcas que destacan de la competencia.',
-    icon: <Palette size={26} />,
+    icon: <Palette size={24} strokeWidth={2} />,
     tag: 'IDENTIDAD DE MARCA',
     dark: true,
   },
@@ -57,16 +57,16 @@ const servicesList: ServiceItem[] = [
     num: '05',
     title: 'Producción Audiovisual',
     desc: 'Fotografía comercial y producción de video profesional para redes sociales y campañas publicitarias.',
-    icon: <Video size={26} />,
+    icon: <Video size={24} strokeWidth={2} />,
     tag: 'FOTO & VIDEO REELS',
     dark: false,
   },
   {
     num: '06',
-    title: 'Estrategia Digital 360°',
-    desc: 'Plan integral para escalar tu negocio de forma sostenible: diagnóstico, ejecución meticulosa y medición.',
-    icon: <Target size={26} />,
-    tag: 'CONSULTORÍA 360°',
+    title: 'Ventas en Línea & E-Commerce',
+    desc: 'Tiendas online diseñadas para que la gente encuentre rápido lo que busca y pague sin complicaciones.',
+    icon: <ShoppingCart size={24} strokeWidth={2} />,
+    tag: 'E-COMMERCE 360°',
     dark: true,
   },
 ]
@@ -80,7 +80,7 @@ export const Services: React.FC = () => {
         <div className={styles.header}>
           <span className={styles.eyebrow}>NUESTROS SERVICIOS</span>
           <h2 className={styles.title}>
-            Todo lo que necesita para crecer<br />en un solo lugar.
+            Todo lo que necesita tu negocio<br />para crecer en un solo lugar.
           </h2>
         </div>
 
