@@ -6,13 +6,17 @@ import path from "node:path";
 const PORT = Number(process.env.PORT || 80);
 const DIST = path.resolve(process.env.DIST_DIR || "dist");
 const DATA_DIR = process.env.DATA_DIR || "/data";
-const TOKEN = process.env.ACCESS_TOKEN || "";
+const SECRET = process.env.GATE_SECRET || process.env.ACCESS_TOKEN || "";
+const TOKENS = (process.env.ACCESS_TOKENS || process.env.ACCESS_TOKEN || "")
+  .split(/[\s,]+/)
+  .map((token) => token.trim())
+  .filter((token) => token.length >= 20);
 const SESSION_MS = Number(process.env.SESSION_MINUTES || 45) * 60 * 1000;
 const COOKIE = "qadro_once";
 const STATE_FILE = path.join(DATA_DIR, "used.json");
 
-if (!TOKEN || TOKEN.length < 20) {
-  console.error("ACCESS_TOKEN es obligatorio y debe ser largo.");
+if (!SECRET || SECRET.length < 20 || TOKENS.length === 0) {
+  console.error("Hace falta GATE_SECRET y al menos un enlace en ACCESS_TOKENS.");
   process.exit(1);
 }
 
@@ -40,9 +44,13 @@ function hashToken(token) {
 
 function tokensMatch(input) {
   const given = Buffer.from(input);
-  const expected = Buffer.from(TOKEN);
-  if (given.length !== expected.length) return false;
-  return crypto.timingSafeEqual(given, expected);
+  let found = false;
+  for (const token of TOKENS) {
+    const expected = Buffer.from(token);
+    if (given.length !== expected.length) continue;
+    found = crypto.timingSafeEqual(given, expected) || found;
+  }
+  return found;
 }
 
 function readState() {
@@ -72,7 +80,7 @@ function alreadyUsed(token) {
 
 function sign(exp) {
   const body = String(exp);
-  const sig = crypto.createHmac("sha256", TOKEN).update(body).digest("base64url");
+  const sig = crypto.createHmac("sha256", SECRET).update(body).digest("base64url");
   return `${body}.${sig}`;
 }
 
@@ -81,7 +89,7 @@ function sessionExpiry(cookieHeader) {
   if (!match) return 0;
   const [body, sig] = decodeURIComponent(match[1]).split(".");
   if (!body || !sig) return 0;
-  const expected = crypto.createHmac("sha256", TOKEN).update(body).digest("base64url");
+  const expected = crypto.createHmac("sha256", SECRET).update(body).digest("base64url");
   const a = Buffer.from(sig);
   const b = Buffer.from(expected);
   if (a.length !== b.length || !crypto.timingSafeEqual(a, b)) return 0;
@@ -228,5 +236,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, "0.0.0.0", () => {
-  console.log(`Propuesta de un solo uso en el puerto ${PORT}`);
+  console.log(`Propuesta de un solo uso en el puerto ${PORT}. Enlaces: ${TOKENS.length}`);
 });
